@@ -55,7 +55,10 @@ public class AuthController {
 
         // 4️⃣ Generate token
         String token = jwtUtil.generateToken(user.getEmail(), user.getId());
-        return ResponseEntity.ok(new AuthResponse(token, user.getId(), user.getEmail()));
+        return ResponseEntity.ok(
+                new AuthResponse(token, user.getId(), user.getEmail(), user.getUsername())
+        );
+
 
     }
 
@@ -72,7 +75,9 @@ public class AuthController {
 
         User user = existingUser.get();
         String token = jwtUtil.generateToken(user.getEmail(), user.getId());
-        return ResponseEntity.ok(new AuthResponse(token, user.getId(), user.getEmail()));
+        return ResponseEntity.ok(
+                new AuthResponse(token, user.getId(), user.getEmail(), user.getUsername())
+        );
 
     }
 

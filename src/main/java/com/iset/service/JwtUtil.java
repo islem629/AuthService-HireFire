@@ -10,10 +10,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+
 public class JwtUtil {
 
     private final String SECRET_KEY = "mySuperSecretKey1234567890abcd1234567890"; // same as in application.yml
     private final long EXPIRATION = 86400000; // 24 hours
+
 
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(SECRET_KEY.getBytes());
